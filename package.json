@@ -1,0 +1,42 @@
+{
+  "name": "sql_advanced",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "set ENV=dev nodemon -L --watch 'src/**/*.ts' --exec ts-node src/server.ts",
+    "build": "npx tsc",
+    "start": "npm run build && node dist/server.js",
+    "test": "set ENV=test && db-migrate up && npm run build && jasmine && db-migrate reset",
+    "migrate-up": "set ENV=dev && db-migrate up",
+    "migrate-down": "set ENV=dev && db-migrate down",
+    "migrate-reset": "db-migrate reset",
+    "run:ts": "ts-node src/server.ts"
+  },
+  "author": "Mostafa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jasmine": "^4.5.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/jasmine": "^4.3.1",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/pg": "^8.6.5",
+    "@types/supertest": "^2.0.12",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  }
+}
